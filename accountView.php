@@ -56,14 +56,14 @@
 	<!-- Header section -->
 	<?php include 'header.php';?>
 	<!-- Header section end -->
-
+<br><br><br><br><br><br>
 <div class="main-content-inner">
     <div class="row">
         <!-- Primary table start -->
 		<div class="col-12 mt-5">
 		    <div class="card">
 		        <div class="card-body">
-		        	<br><br><br><br><br><br>
+
 		            <h4 class="header-title">Data Table Primary</h4>
 		            <div class="data-tables datatable-primary">
 		                <table id="dataTable2" class="text-center">
