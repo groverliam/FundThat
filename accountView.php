@@ -48,7 +48,7 @@
 
 </head>
 <body>
-	
+
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -57,7 +57,7 @@
 	<!-- Header section -->
 	<?php include 'header.php';?>
 	<!-- Header section end -->
-<br><br><br><br><br><br>
+<br><br>
 
 <div class="main-content-inner">
     <div class="row">
