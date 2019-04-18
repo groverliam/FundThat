@@ -25,6 +25,11 @@
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 <header class="header-section clearfix">
+		<?php
+			session_start();
+			$_SESSION['Email'] = $Email;
+	    	$_SESSION['First_Name'] = $row['First_Name'];
+		?>
 	<!--center>
 	 <input type="button" id="show_login" value="Show Login">
 	 <div id = "loginform">
@@ -51,14 +56,17 @@
 					<li><a href="blog.php">News</a></li>
 					<li><a href="about.php">About</a></li>
 					<li><a href="contact.php">Contact</a></li>
-					<li><a href="Login.php">Login</a></li>
+					<li><?php 
+						session_start();
+						if(isset($_SESSION['Email'])){
+						    echo "you logged in as </br>", $_SESSION['Email'];
+						    echo "<br/><a href='logout.php'>logout</a>";
+						}else{
+						//your page stuff
+					}</li>
 				</ul>
 			</nav>
 		</div>
 	</header>
-	<?php
-		session_start();
-		$_SESSION['Email'] = $Email;
-	    $_SESSION['First_Name'] = $row['First_Name'];
-	?>
+
 </html>
