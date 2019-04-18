@@ -156,7 +156,7 @@
 
 			// sql to insert data to table
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
-					VALUES ('$Type', '$Amount', Now(), '$Email')";
+					VALUES ('$Type', '$Amount', Now(), Select Account_Number from Deposits where tax_ID = (Select Tax_ID from Customers Where Email = $Email))";
 
 			if ($conn->query($sql) === TRUE) {
     			echo "Transaction created successfully.";
