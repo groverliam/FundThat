@@ -39,14 +39,20 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-    
+
 
 
 	<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-
+	<?php
+	session_start();
+	if(isset($_SESSION['Email']))
+		$Email = $_SESSION['Email'];
+	else
+		header('LOCATION: Login.php');
+	?>
 </head>
 <body>
 
@@ -114,6 +120,86 @@
         <!-- Primary table end -->
     </div>
 </div>
+<center>
+	<?php
+	if ($_SERVER['REQUEST_METHOD']=='POST'){		
+		//retrieve form data
+		$error = array();
+		
+		if (!empty($_POST['Type']))
+			$Tax_ID = $_POST['Type'];
+		else 
+			$error[] = "Please enter Type.";
+			
+		if (!empty($_POST['Amount']))
+			$First_Name = $_POST['Amount'];
+		else 
+			$error[] = "Please enter Amount.";
+			
+		if(!empty($error)){
+			foreach ($error as $msg){
+				echo $msg;
+				echo '<br>';
+			}
+		}
+		else {
+			//define database connection parameters
+        	include("../../sqlfiles/bank_db_connection.php");
+			
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+
+			// Check connection
+			if ($conn->connect_error) {
+    			die("Connection failed: " . $conn->connect_error);
+			} 
+
+			// sql to insert data to table
+			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
+					VALUES ('$Type', '$Amount', Now(), '$Email')";
+
+			if ($conn->query($sql) === TRUE) {
+    			echo "Transaction created successfully.";
+    		
+			} else {
+    			echo "Error: " . $sql . "<br>" . $conn->error;
+			}
+
+			/*$max = "SELECT MAX( Account_Number ) FROM Deposits";
+			$maxNum = query($max);
+			$maxNum = $max + 1;
+			$newDep = "INSERT INTO Deposits (Account_number, Tax_ID, Current_Balance_Amount, Role)
+					VALUES ($maxNum, '$Tax_ID', 0.00, 'Primary')";
+			if ($conn->query($newDep) === TRUE) {
+				echo "New Deposit created successfully";
+			} else {
+				echo "Error: " . $newDep . "<br>" . $conn->error;
+			}*/
+
+
+			$conn->close();	
+		}
+	}
+	?>
+	<form action="" method="post">
+				<table>
+					<tr>
+						<td>Amount: </td>
+						<td><input type="text" name="First_Name" 
+							value=<?php if(isset($_POST['First_Name'])) echo $_POST['First_Name'] ?>></td>
+					</tr>
+					<tr>
+						<td>Type: </td>
+						<td><input type="radio" name="Type" value = "Deposit">Deposit<br>
+						<input type="radio" name="Type" value = "Withdrawl">Withdrawl<br>
+						</td>
+					</tr>
+				</table>
+				<input type="Submit">
+			</form>
+		</div>
+	</div>
+</center>
 </section>
 
 	<!-- Footer section -->
