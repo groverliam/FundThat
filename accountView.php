@@ -156,12 +156,7 @@
 
 			$w = "Select Account_Number from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email');"
 			
-			$t = $conn->query($w) or die($conn->error);
-				while (($row2 = $t->fetch_assoc()) !== null){
-					
-					$AN = $row2;
-					
-				}
+			$t = query($w) or die($conn->error);
 
 			// sql to insert data to table
 			
@@ -178,7 +173,7 @@
 			}*/
 
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
-				VALUES ('$Type', '$Amount', Now(), '$AN')";
+				VALUES ('$Type', '$Amount', Now(), '$t')";
 
 				if ($conn->query($sql) === TRUE) {
 	    			echo "Transaction created successfully.";
