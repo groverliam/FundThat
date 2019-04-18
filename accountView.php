@@ -159,7 +159,7 @@
 			$t = $conn->query($w) or die($conn->error);
 				while (($row2 = $t->fetch_assoc()) !== null){
 					
-					$currentTaxID "".$row2['Tax_ID']."";
+					$currentTaxID = "".$row2['Tax_ID']."";
 					
 				}
 
