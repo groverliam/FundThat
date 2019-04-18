@@ -57,51 +57,55 @@
 	<?php include 'header.php';?>
 	<!-- Header section end -->
 
-
-<div class="col-12 mt-5">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="header-title">Data Table Primary</h4>
-            <div class="data-tables datatable-primary">
-                <table id="dataTable2" class="text-center">
-                    <thead class="text-capitalize">
-                        <tr>
-                            <th>Type</th>
-							<th>Amount</th>
-                            <th>Transaction Date</th>
-                            <th>Account Number</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-					<?php
-						include("../../sqlfiles/bank_db_connection.php");
-						
-						$display = 100;
-						if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
-						$start_from = ($page-1) * $display;
-						$q = "SELECT * FROM Transactions ORDER BY Account_Number ASC LIMIT ". $start_from.", ". $display;
-						
-						$r = $conn->query($q) or die($conn->error);
-							while (($row = $r->fetch_assoc()) !== null){
+<div class="main-content-inner">
+    <div class="row">
+        <!-- Primary table start -->
+		<div class="col-12 mt-5">
+		    <div class="card">
+		        <div class="card-body">
+		            <h4 class="header-title">Data Table Primary</h4>
+		            <div class="data-tables datatable-primary">
+		                <table id="dataTable2" class="text-center">
+		                    <thead class="text-capitalize">
+		                        <tr>
+		                            <th>Type</th>
+									<th>Amount</th>
+		                            <th>Transaction Date</th>
+		                            <th>Account Number</th>
+		                        </tr>
+		                    </thead>
+		                    <tbody>
+							<?php
+								include("../../sqlfiles/bank_db_connection.php");
 								
-								echo "<tr>";
-									echo "<td>".$row['Type']."</td>";
-									echo "<td>".$row['Amount']."</td>";
-									echo "<td>".$row['effective_date_time']."</td>";
-									echo "<td>".$row['Account_Number']."</td>";
-									//echo "<td><a onClick=\"javascript: return confirm('Do you really want to dispute this item?');\" 
-									//		   href='dispute.php?trans_TBD=".$row['Account_Number '].$row['effective_date_time']."'>Edit</a></td>";
-								echo "</tr>";
-							}
-						
-					?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+								$display = 100;
+								if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
+								$start_from = ($page-1) * $display;
+								$q = "SELECT * FROM Transactions ORDER BY Account_Number ASC LIMIT ". $start_from.", ". $display;
+								
+								$r = $conn->query($q) or die($conn->error);
+									while (($row = $r->fetch_assoc()) !== null){
+										
+										echo "<tr>";
+											echo "<td>".$row['Type']."</td>";
+											echo "<td>".$row['Amount']."</td>";
+											echo "<td>".$row['effective_date_time']."</td>";
+											echo "<td>".$row['Account_Number']."</td>";
+											//echo "<td><a onClick=\"javascript: return confirm('Do you really want to dispute this item?');\" 
+											//		   href='dispute.php?trans_TBD=".$row['Account_Number '].$row['effective_date_time']."'>Edit</a></td>";
+										echo "</tr>";
+									}
+								
+							?>
+		                    </tbody>
+		                </table>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+        <!-- Primary table end -->
     </div>
 </div>
-
 	<!-- Footer section -->
 	<?php include 'footer.php';?>
 
