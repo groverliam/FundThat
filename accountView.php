@@ -163,7 +163,7 @@
 
 			echo $row[Account_Number]; // 42
 			// sql to insert data to table
-			/*$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
+			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
 					VALUES ('$Type', '$Amount', Now(), '$row[Account_Number]')";
 
 			if ($conn->query($sql) === TRUE) {
