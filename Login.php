@@ -41,11 +41,7 @@
                $row = $result->fetch_assoc();
    
                if ($row['upass'] == $upass){
-                  
-                  //update user last-login time
-                  $res = $conn->query($update); 
-               
-                  //let user log in
+                                    //let user log in
                   //set session variable
                   session_start();
                
@@ -81,7 +77,8 @@
       <div class="column menu">
          <ul>
             <li><a href="index.php">Home</a></li>
-               <li>View Catalog</li>
+            <li><a href="Login.php">Login</a></li>
+            <li><a href="signup.php">Sign up</a></li>
          </ul>
          <br><br>
          
