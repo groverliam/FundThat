@@ -4,6 +4,13 @@
 	<meta name="description" content="Cryptocurrency Landing Page Template">
 	<meta name="keywords" content="cryptocurrency, unica, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+	<link rel="stylesheet" type="text/css" href="css/login_style.css">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="js/login_effect.js"></script>
+	</head>
+	   
+	
 	<!-- Favicon -->
 	<link href="img/favicon.ico" rel="shortcut icon"/>
 
@@ -18,6 +25,18 @@
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 <header class="header-section clearfix">
+	<center>
+	 <input type="button" id="show_login" value="Show Login">
+	 <div id = "loginform">
+	  <form method = "post" action = "">
+	   <p>Join TalkersCode And get Quick Access To Our Tutorials,Questions,Web Tricks And Many More</p>
+	   <input type = "image" id = "close_login" src = "images/close.png">
+	   <input type = "text" id = "login" placeholder = "Email Id" name = "uid">
+	   <input type = "password" id = "password" name = "upass" placeholder = "***">
+	   <input type = "submit" id = "dologin" value = "Login">
+	  </form>
+	 </div>
+	</center>
 		<div class="container-fluid">
 			<a href="index.php" class="site-logo">
 				<img src="img/logo.png" alt="">
@@ -32,6 +51,7 @@
 					<li><a href="blog.php">News</a></li>
 					<li><a href="about.php">About</a></li>
 					<li><a href="contact.php">Contact</a></li>
+
 				</ul>
 			</nav>
 		</div>
