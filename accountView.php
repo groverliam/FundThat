@@ -154,12 +154,12 @@
     			die("Connection failed: " . $conn->connect_error);
 			} 
 
-			$w = "Select Tax_ID from Customers Where Email = '$Email'". $start_from.", ". $display;
+			$w = "Select Account_Number from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email');"
 			
 			$t = $conn->query($w) or die($conn->error);
 				while (($row2 = $t->fetch_assoc()) !== null){
 					
-					$currentTaxID = "".$row2['Tax_ID']."";
+					$AN = $row2;
 					
 				}
 
@@ -178,7 +178,7 @@
 			}*/
 
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
-				VALUES ('$Type', '$Amount', Now(), (Select Account_Number from Deposits where Tax_ID = $currentTaxID))";
+				VALUES ('$Type', '$Amount', Now(), $AN)";
 
 				if ($conn->query($sql) === TRUE) {
 	    			echo "Transaction created successfully.";
