@@ -47,7 +47,7 @@
 			<nav class="main-menu">
 				<ul class="menu-list">
 					<li><a href="index.php">Home</a></li>
-					<li><a href="accountView.php">My Account</a></li>
+					<li><a href="accountView.php?email=$email">My Account</a></li>
 					<li><a href="blog.php">News</a></li>
 					<li><a href="about.php">About</a></li>
 					<li><a href="contact.php">Contact</a></li>
