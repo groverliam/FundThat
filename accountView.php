@@ -127,12 +127,12 @@
 		$error = array();
 		
 		if (!empty($_POST['Type']))
-			$Tax_ID = $_POST['Type'];
+			$Type = $_POST['Type'];
 		else 
 			$error[] = "Please enter Type.";
 			
 		if (!empty($_POST['Amount']))
-			$First_Name = $_POST['Amount'];
+			$Amount = $_POST['Amount'];
 		else 
 			$error[] = "Please enter Amount.";
 			
