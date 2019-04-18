@@ -65,7 +65,7 @@
 		    <div class="card">
 		        <div class="card-body">
 
-		            <h4 class="header-title">Data Table Primary</h4>
+		            <h4 class="header-title">Transaction Summary</h4>
 		            <div class="data-tables datatable-primary">
 		                <table id="dataTable2" class="text-center">
 		                    <thead class="text-capitalize">
