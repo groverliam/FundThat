@@ -65,7 +65,7 @@
 
 			// sql to insert data to table
 			$sql = "INSERT INTO Customers (fname, lname, Tax_ID, email, upass)
-					VALUES ('$fname', '$lname', '$Tax_ID', '$email', '$upass'";
+					VALUES ('$fname', '$lname', '$Tax_ID', '$email', '$upass')";
 
 			if ($conn->query($sql) === TRUE) {
     			echo "New record created successfully";
