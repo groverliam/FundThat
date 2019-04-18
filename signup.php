@@ -84,6 +84,7 @@
 			} else {
 				echo "Error: " . $newDep . "<br>" . $conn->error;
 			}*/
+			header('LOCATION: Login.php');
 
 			$conn->close();	
 		}
