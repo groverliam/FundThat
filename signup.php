@@ -30,13 +30,13 @@
 		if ($upass != $upass2)
 			$error[] = "Passwords do not match.";
 			
-		if (!empty($_POST['fname']))
-			$fname = $_POST['fname'];
+		if (!empty($_POST['First_Name']))
+			$First_Name = $_POST['First_Name'];
 		else 
 			$error[] = "Please enter first name.";
 			
-		if (!empty($_POST['lname']))
-			$lname = $_POST['lname'];
+		if (!empty($_POST['Last_Name']))
+			$Last_Name = $_POST['Last_Name'];
 		else 
 			$error[] = "Please enter last name.";
 			
@@ -64,8 +64,8 @@
 			} 
 
 			// sql to insert data to table
-			$sql = "INSERT INTO Customers (fname, lname, Tax_ID, email, upass)
-					VALUES ('$fname', '$lname', '$Tax_ID', '$email', '$upass')";
+			$sql = "INSERT INTO Customers (First_Name, Last_Name, Tax_ID, email, upass)
+					VALUES ('$First_Name', '$Last_Name', '$Tax_ID', '$email', '$upass')";
 
 			if ($conn->query($sql) === TRUE) {
     			echo "New record created successfully";
@@ -108,13 +108,13 @@
 					</tr>
 					<tr>
 						<td>First Name: </td>
-						<td><input type="text" name="fname" 
-							value=<?php if(isset($_POST['fname'])) echo $_POST['fname'] ?>></td>
+						<td><input type="text" name="First_Name" 
+							value=<?php if(isset($_POST['First_Name'])) echo $_POST['First_Name'] ?>></td>
 					</tr>
 					<tr>
 						<td>Last Name: </td>
-						<td><input type="text" name="lname" 
-							value=<?php if(isset($_POST['lname'])) echo $_POST['lname'] ?>></td>
+						<td><input type="text" name="Last_Name" 
+							value=<?php if(isset($_POST['Last_Name'])) echo $_POST['Last_Name'] ?>></td>
 					</tr>
 					<tr>
 						<td>Email: </td>
