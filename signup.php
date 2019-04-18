@@ -74,7 +74,7 @@
     			echo "Error: " . $sql . "<br>" . $conn->error;
 			}
 
-			$max = "SELECT MAX( Account_Number ) FROM Deposits";
+			/*$max = "SELECT MAX( Account_Number ) FROM Deposits";
 			$maxNum = query($max);
 			$maxNum = $max + 1;
 			$newDep = "INSERT INTO Deposits (Account_number, Tax_ID, Current_Balance_Amount, Role)
@@ -83,7 +83,7 @@
 				echo "New Deposit created successfully";
 			} else {
 				echo "Error: " . $newDep . "<br>" . $conn->error;
-			}
+			}*/
 
 			$conn->close();	
 		}
