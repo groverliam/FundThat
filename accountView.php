@@ -48,16 +48,17 @@
 
 </head>
 <body>
+	
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
-
+<section class="hero-section">
 	<!-- Header section -->
 	<?php include 'header.php';?>
 	<!-- Header section end -->
 <br><br><br><br><br><br>
-<section class="hero-section">
+
 <div class="main-content-inner">
     <div class="row">
         <!-- Primary table start -->
