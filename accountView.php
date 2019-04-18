@@ -178,7 +178,7 @@
 			}*/
 
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
-				VALUES ('$Type', '$Amount', Now(), $AN)";
+				VALUES ('$Type', '$Amount', Now(), '$AN')";
 
 				if ($conn->query($sql) === TRUE) {
 	    			echo "Transaction created successfully.";
