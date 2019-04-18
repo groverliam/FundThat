@@ -161,10 +161,10 @@
 			}
 			$row = mysql_fetch_row($result);
 
-			$AN = echo $row[0]; 
+			//$AN = $row[0]; 
 
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
-					VALUES ('$Type', '$Amount', Now(), '$AN')";
+					VALUES ('$Type', '$Amount', Now(), '$row')";
 
 			if ($conn->query($sql) === TRUE) {
     			echo "Transaction created successfully.";
