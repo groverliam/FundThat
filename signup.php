@@ -53,7 +53,7 @@
 		}
 		else {
 			//define database connection parameters
-			include "db_connection.php";
+        	include("../../sqlfiles/bank_db_connection.php");
 			
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
