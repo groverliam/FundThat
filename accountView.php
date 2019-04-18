@@ -154,21 +154,30 @@
     			die("Connection failed: " . $conn->connect_error);
 			} 
 
-			$w = "Select Account_Number from Deposits where tax_ID = (Select Tax_ID from Customers Where Email = '$Email')";
-			
-			$t = query($w);
 
 			// sql to insert data to table
-
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
-				VALUES ('$Type', '$Amount', Now(), '$t')";
+					VALUES ('$Type', '$Amount', Now(), (Select Account_Number from Deposits where Email = '$Email'))";
 
-				if ($conn->query($sql) === TRUE) {
-	    			echo "Transaction created successfully.";
-	    		
-				} else {
-	    			echo "Error: " . $sql . "<br>" . $conn->error;
-				}
+			if ($conn->query($sql) === TRUE) {
+    			echo "Transaction created successfully.";
+    		
+			} else {
+    			echo "Error: " . $sql . "<br>" . $conn->error;
+			}
+
+			/*$max = "SELECT MAX( Account_Number ) FROM Deposits";
+			$maxNum = query($max);
+			$maxNum = $max + 1;
+			$newDep = "INSERT INTO Deposits (Account_number, Tax_ID, Current_Balance_Amount, Role)
+					VALUES ($maxNum, '$Tax_ID', 0.00, 'Primary')";
+			if ($conn->query($newDep) === TRUE) {
+				echo "New Deposit created successfully";
+			} else {
+				echo "Error: " . $newDep . "<br>" . $conn->error;
+			}*/
+
+
 			$conn->close();	
 		}
 	}
