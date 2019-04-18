@@ -159,7 +159,7 @@
 			$t = $conn->query($w) or die($conn->error);
 				while (($row2 = $t->fetch_assoc()) !== null){
 					
-					echo "<td>".$row2['Tax_ID']."</td>";
+					$currentTaxID "".$row2['Tax_ID']."";
 					
 				}
 
@@ -178,7 +178,7 @@
 			}*/
 
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
-				VALUES ('$Type', '$Amount', Now(), (Select Account_Number from Deposits where Tax_ID = ))";
+				VALUES ('$Type', '$Amount', Now(), (Select Account_Number from Deposits where Tax_ID = $currentTaxID))";
 
 				if ($conn->query($sql) === TRUE) {
 	    			echo "Transaction created successfully.";
