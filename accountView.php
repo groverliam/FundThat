@@ -57,6 +57,7 @@
 	<?php include 'header.php';?>
 	<!-- Header section end -->
 <br><br><br><br><br><br>
+<section class="hero-section">
 <div class="main-content-inner">
     <div class="row">
         <!-- Primary table start -->
@@ -108,6 +109,8 @@
         <!-- Primary table end -->
     </div>
 </div>
+</section>
+
 	<!-- Footer section -->
 	<?php include 'footer.php';?>
 
