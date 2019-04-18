@@ -73,6 +73,16 @@
     			echo "Error: " . $sql . "<br>" . $conn->error;
 			}
 
+			$max = "SELECT MAX( Account_Number ) FROM Deposits";
+
+			$newDep = "INSERT INTO Deposits (Account_number, Tax_ID, Current_Balance_Amount, Role)
+					VALUES ($max+1, '$Tax_ID', 0, 'Primary')";
+			if ($conn->query($newDep) === TRUE) {
+    			echo "New record created successfully";
+			} else {
+    			echo "Error: " . $sql . "<br>" . $conn->error;
+			}
+
 			$conn->close();	
 		}
 	}
