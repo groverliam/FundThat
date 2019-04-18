@@ -69,7 +69,7 @@
 
 			if ($conn->query($sql) === TRUE) {
     			echo "New record created successfully";
-    			$max = "SELECT MAX( Account_Number ) FROM Deposits";
+    			$max = SELECT MAX( Account_Number ) FROM Deposits;
     			$max = $max + 1;
 				$newDep = "INSERT INTO Deposits (Account_number, Tax_ID, Current_Balance_Amount, Role)
 						VALUES ('$max', '$Tax_ID', '0.00', 'Primary')";
