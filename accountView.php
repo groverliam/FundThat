@@ -56,7 +56,7 @@
 					<?php
 						include("../../sqlfiles/bank_db_connection.php");
 						
-						$display = 1000;
+						$display = 100;
 						if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
 						$start_from = ($page-1) * $display;
 						$q = "SELECT * FROM requirements ORDER BY requirement_id ASC LIMIT ". $start_from.", ". $display;
@@ -69,8 +69,8 @@
 									echo "<td>".$row['Amount']."</td>";
 									echo "<td>".$row['effective_date_time']."</td>";
 									echo "<td>".$row['Account_Number']."</td>";
-									echo "<td><a onClick=\"javascript: return confirm('Do you really want to dispute this item?');\" 
-											   href='dispute.php?trans_TBD=".$row['Account_Number '].$row['effective_date_time']."'>Edit</a></td>";
+									//echo "<td><a onClick=\"javascript: return confirm('Do you really want to dispute this item?');\" 
+									//		   href='dispute.php?trans_TBD=".$row['Account_Number '].$row['effective_date_time']."'>Edit</a></td>";
 								echo "</tr>";
 							}
 						
