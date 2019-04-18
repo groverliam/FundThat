@@ -69,19 +69,20 @@
 
 			if ($conn->query($sql) === TRUE) {
     			echo "New record created successfully";
+    			$max = "SELECT MAX( Account_Number ) FROM Deposits";
+    			$max = $max + 1;
+				$newDep = "INSERT INTO Deposits (Account_number, Tax_ID, Current_Balance_Amount, Role)
+						VALUES ('$max', '$Tax_ID', '0.00', 'Primary')";
+				if ($conn->query($newDep) === TRUE) {
+	    			echo "New Deposit created successfully";
+				} else {
+	    			echo "Error: " . $newDep . "<br>" . $conn->error;
+				}
 			} else {
     			echo "Error: " . $sql . "<br>" . $conn->error;
 			}
 
-			$max = "SELECT MAX( Account_Number ) FROM Deposits";
-
-			$newDep = "INSERT INTO Deposits (Account_number, Tax_ID, Current_Balance_Amount, Role)
-					VALUES ('$max+1', '$Tax_ID', '0.00', 'Primary')";
-			if ($conn->query($newDep) === TRUE) {
-    			echo "New Deposit created successfully";
-			} else {
-    			echo "Error: " . $newDep . "<br>" . $conn->error;
-			}
+			
 
 			$conn->close();	
 		}
