@@ -57,7 +57,7 @@
 	<!-- Header section -->
 	<?php include 'header.php';?>
 	<!-- Header section end -->
-	
+
 <div class="main-content-inner">
     <div class="row">
         <!-- Primary table start -->
@@ -69,7 +69,11 @@
 		            <div class="data-tables datatable-primary">
 		                <table id="dataTable2" class="text-center">
 		                    <thead class="text-capitalize">
-		                        
+								<col width="200">
+								<!--<col width="100">-->
+								<col width="200">
+								<col width="200">
+								<col width="200">
 		                        <tr>
 		                            <th>Type</th>
 									<th>Amount</th>
