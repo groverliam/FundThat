@@ -25,7 +25,7 @@
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 <header class="header-section clearfix">
-	<center>
+	<!--center>
 	 <input type="button" id="show_login" value="Show Login">
 	 <div id = "loginform">
 	  <form method = "post" action = "">
@@ -36,14 +36,14 @@
 	   <input type = "submit" id = "dologin" value = "Login">
 	  </form>
 	 </div>
-	</center>
+	</center-->
 		<div class="container-fluid">
 			<a href="index.php" class="site-logo">
 				<img src="img/logo.png" alt="">
 			</a>
 			<div class="responsive-bar"><i class="fa fa-bars"></i></div>
 			<a href="" class="user"><i class="fa fa-user"></i></a>
-			<a href="" class="site-btn">Sign Up Free</a>
+			<!--a href="" class="site-btn">Sign Up Free</a-->
 			<nav class="main-menu">
 				<ul class="menu-list">
 					<li><a href="index.php">Home</a></li>
@@ -51,7 +51,7 @@
 					<li><a href="blog.php">News</a></li>
 					<li><a href="about.php">About</a></li>
 					<li><a href="contact.php">Contact</a></li>
-
+					<li><a href="Login.php">Login</a></li>
 				</ul>
 			</nav>
 		</div>
