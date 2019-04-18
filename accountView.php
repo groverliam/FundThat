@@ -154,9 +154,9 @@
     			die("Connection failed: " . $conn->connect_error);
 			} 
 
-			$w = "Select Account_Number from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email');"
+			$w = " Select Account_Number from Deposits where tax_ID = (Select Tax_ID from Customers Where Email = '$Email');"
 			
-			$t = query($w) or die($conn->error);
+			$t = query($w);
 
 			// sql to insert data to table
 			
