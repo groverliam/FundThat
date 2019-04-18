@@ -57,7 +57,7 @@
 	<!-- Header section -->
 	<?php include 'header.php';?>
 	<!-- Header section end -->
-<br>
+	
 <div class="main-content-inner">
     <div class="row">
         <!-- Primary table start -->
