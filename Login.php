@@ -1,75 +1,107 @@
-<?php
-   include("../../sqlfiles/bank_db_connection.php");
-   session_start();
-   
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form 
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Monmouth Auto Parts Sales System </title>
+
+   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
+</head>
+
+<body>
+<?php 
+   if ($_SERVER['REQUEST_METHOD']=='POST'){     
+      //retrieve form data
+      $error = array();
       
-      $myusername = mysqli_real_escape_string($db,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-      
-      $sql = "SELECT * FROM Customers WHERE Email = '$myusername' and upass = '$mypassword'";
-      $result = mysqli_query($db,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
-      
-      $count = mysqli_num_rows($result);
-      
-      // If result matched $myusername and $mypassword, table row must be 1 row
-		
-      if($count == 1) {
-         session_register("myusername");
-         $_SESSION['login_user'] = $myusername;
+      if (!empty($_POST['Email']))
+         $Email = $_POST['Email'];
+      else 
+         $error[] = "Please enter user name.";
          
-         header("location: welcome.php");
-      }else {
-         $error = "Your Login Name or Password is invalid";
+      if (!empty($_POST['upass']))
+         $upass= sha1($_POST['upass']);
+      else 
+         $error[] = "Please enter password.";
+         
+      if(!empty($error)){
+         foreach ($error as $msg){
+            echo $msg;
+            echo '<br>';
+         }
+      }
+      else {
+         //connect to db
+         include("../../sqlfiles/bank_db_connection.php");
+         
+         $q = "SELECT * FROM Customers WHERE Email = '$Email'";
+         
+         $result = $conn->query($q); //execute select
+         if ($result->num_rows > 0) {
+            if ($result->num_rows == 1){
+               //one record found. right case.
+               $row = $result->fetch_assoc();
+   
+               if ($row['upass'] == $upass){
+                  
+                  //update user last-login time
+                  $res = $conn->query($update); 
+               
+                  //let user log in
+                  //set session variable
+                  session_start();
+               
+                  //set session variables
+                  $_SESSION['Email'] = $Email;
+                  $_SESSION['fname'] = $row['fname'];                  
+                                 
+                     header('LOCATION: index.php');
+                  
+                  }
+               else {
+                  echo "Either username or password does not match.";
+               }     
+            }
+            else {
+               echo "More than one record found with the same user name. DB corrupted.";
+            }
+
+         } 
+         else {
+            echo "User name not found in database.";
+         }
       }
    }
-?>
-<html>
-   
-   <head>
-      <title>Login Page</title>
-      
-      <style type = "text/css">
-         body {
-            font-family:Arial, Helvetica, sans-serif;
-            font-size:14px;
-         }
-         label {
-            font-weight:bold;
-            width:100px;
-            font-size:14px;
-         }
-         .box {
-            border:#666666 solid 1px;
-         }
-      </style>
-      
-   </head>
-   
-   <body bgcolor = "#FFFFFF">
-	
-      <div align = "center">
-         <div style = "width:300px; border: solid 1px #333333; " align = "left">
-            <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
-				
-            <div style = "margin:30px">
-               
-               <form action = "" method = "post">
-                  <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
-                  <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
-                  <input type = "submit" value = " Submit "/><br />
-               </form>
-               
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-					
-            </div>
-				
-         </div>
-			
-      </div>
 
-   </body>
+?>
+   <div id = "container">
+   <div class="header">
+      <h1>FUNDTHAT!</h1>
+   </div>
+
+   <div class="clearfix">
+      <div class="column menu">
+         <ul>
+            <li><a href="index.php">Home</a></li>
+               <li>View Catalog</li>
+         </ul>
+         <br><br>
+         
+         <form action = "" method = "post">
+            <p> User name:</p>
+            <p> <input type = "text" name = "Email">
+            <p> Password:</p>
+            <p> <input type = "password" name = "upass"> 
+            <p> <input type = "submit" value = "Login">
+         </form>     
+         
+         <br><p>Forgot your Password? <a href="reset_password.php"><font color="black"> Click here</font></a></p>
+
+      </div>
+      
+   </div>
+
+   <div class="footer">
+      <p>&copy FUNDTHAT! | 2019 | 400 Cedar Ave, West Long Branch, New Jersey</p>
+   </div>
+   </div>
+</body>
 </html>
