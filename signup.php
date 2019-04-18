@@ -68,7 +68,7 @@
 					VALUES ('$First_Name', '$Last_Name', '$Tax_ID', '$email', '$upass')";
 
 			if ($conn->query($sql) === TRUE) {
-    			echo "New record created successfully";
+    			echo "Account created successfully, please login.";
     		
 			} else {
     			echo "Error: " . $sql . "<br>" . $conn->error;
@@ -84,7 +84,7 @@
 			} else {
 				echo "Error: " . $newDep . "<br>" . $conn->error;
 			}*/
-			header('LOCATION: Login.php');
+
 
 			$conn->close();	
 		}
