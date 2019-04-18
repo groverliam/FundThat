@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title> Monmouth Auto Parts Sales System </title>
+   <title> FUNDTHAT! </title>
 
    <link rel="stylesheet" type="text/css" href="css/landingPage.css">
 </head>
@@ -51,7 +51,7 @@
                
                   //set session variables
                   $_SESSION['Email'] = $Email;
-                  $_SESSION['fname'] = $row['fname'];                  
+                  $_SESSION['First_Name'] = $row['First_Name'];                  
                                  
                      header('LOCATION: index.php');
                   
