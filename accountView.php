@@ -161,7 +161,7 @@
 			}
 			$row = mysql_fetch_row($result);
 
-			$AN = $row[0]; 
+			$AN = echo $row[0]; 
 
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
 					VALUES ('$Type', '$Amount', Now(), '$AN')";
