@@ -49,7 +49,7 @@
                   $_SESSION['Email'] = $Email;
                   $_SESSION['First_Name'] = $row['First_Name'];                  
                                  
-                     header('LOCATION: index.php');
+                     header('LOCATION: index.php?email=$email');
                   
                   }
                else {

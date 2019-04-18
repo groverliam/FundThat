@@ -56,4 +56,9 @@
 			</nav>
 		</div>
 	</header>
+	<?php
+		session_start();
+		$_SESSION['Email'] = $Email;
+	    $_SESSION['First_Name'] = $row['First_Name'];
+	?>
 </html>
