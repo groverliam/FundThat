@@ -46,20 +46,15 @@
                 <table id="dataTable2" class="text-center">
                     <thead class="text-capitalize">
                         <tr>
-                            <th>Req ID</th>
-							<th>Type</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <th>Assigner</th>
-                            <th>Parent Req ID</th>
-                            <th>Summary</th>
-							<th>Assignee</th>
-                            <th>Version</th>
+                            <th>Type</th>
+							<th>Amount</th>
+                            <th>Transaction Date</th>
+                            <th>Account Number</th>
                         </tr>
                     </thead>
                     <tbody>
 					<?php
-						include("../includes/reqd_connection.php");
+						include("../../sqlfiles/bank_db_connection.php");
 						
 						$display = 1000;
 						if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
@@ -70,19 +65,12 @@
 							while (($row = $r->fetch_assoc()) !== null){
 								
 								echo "<tr>";
-									echo "<td>".$row['requirement_id']."</td>";
-									echo "<td>".$row['requirement_type']."</td>";
-									echo "<td>".$row['requirement_sdate']."</td>";
-									echo "<td>".$row['requirement_edate']."</td>";
-									echo "<td>".$row['requirement_assigner']."</td>";
-									echo "<td>".$row['requirement_parent']."</td>";
-									echo "<td>".$row['requirement_summary']."</td>";
-									echo "<td>".$row['requirement_assignee']."</td>";
-									echo "<td>".$row['requirement_version']."</td>";
-									echo "<td><a onClick=\"javascript: return confirm('Do you really want to edit this item?');\" 
-											   href='edit_req.php?requirement_id_TBD=".$row['requirement_id']."'>Edit</a></td>";
-									echo "<td><a onClick=\"javascript: return confirm('Do you really want to remove this item?');\" 
-											   href='delete_req.php?requirement_id_TBD=".$row['requirement_id']."'>Delete</a></td>";
+									echo "<td>".$row['Type']."</td>";
+									echo "<td>".$row['Amount']."</td>";
+									echo "<td>".$row['effective_date_time']."</td>";
+									echo "<td>".$row['Account_Number']."</td>";
+									echo "<td><a onClick=\"javascript: return confirm('Do you really want to dispute this item?');\" 
+											   href='dispute.php?trans_TBD=".$row['Account_Number '].$row['effective_date_time']."'>Edit</a></td>";
 								echo "</tr>";
 							}
 						
