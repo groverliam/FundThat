@@ -185,8 +185,8 @@
 				<table>
 					<tr>
 						<td>Amount: </td>
-						<td><input type="text" name="First_Name" 
-							value=<?php if(isset($_POST['First_Name'])) echo $_POST['First_Name'] ?>></td>
+						<td><input type="text" name="Amount" 
+							value=<?php if(isset($_POST['Amount'])) echo $_POST['Amount'] ?>></td>
 					</tr>
 					<tr>
 						<td>Type: </td>
