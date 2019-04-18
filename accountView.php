@@ -154,16 +154,24 @@
     			die("Connection failed: " . $conn->connect_error);
 			} 
 
-			// sql to insert data to table
-			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
-					VALUES ('$Type', '$Amount', Now(), (Select Account_Number from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email')))";
+			$w = "Select Tax_ID from Customers Where Email = '$Email'". $start_from.", ". $display;
+			
+			$t = $conn->query($w) or die($conn->error);
+				while (($row2 = $t->fetch_assoc()) !== null){
+					
+					$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
+					VALUES ('$Type', '$Amount', Now(), (Select Account_Number from Deposits where Tax_ID = $row['Tax_ID']))";
 
-			if ($conn->query($sql) === TRUE) {
-    			echo "Transaction created successfully.";
-    		
-			} else {
-    			echo "Error: " . $sql . "<br>" . $conn->error;
-			}
+					if ($conn->query($sql) === TRUE) {
+		    			echo "Transaction created successfully.";
+		    		
+					} else {
+		    			echo "Error: " . $sql . "<br>" . $conn->error;
+					}
+				}
+
+			// sql to insert data to table
+			
 
 			/*$max = "SELECT MAX( Account_Number ) FROM Deposits";
 			$maxNum = query($max);
