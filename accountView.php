@@ -154,10 +154,17 @@
     			die("Connection failed: " . $conn->connect_error);
 			} 
 
+			$result = mysql_query("SELECT Account_Number FROM Deposits WHERE Email = '$Email'");
+			if (!$result) {
+			    echo 'Could not run query: ' . mysql_error();
+			    exit;
+			}
+			$row = mysql_fetch_row($result);
 
-			// sql to insert data to table
+			$AN = $row[0]; 
+
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
-					VALUES ('$Type', '$Amount', Now(), (Select Account_Number from Deposits where Email = '$Email'))";
+					VALUES ('$Type', '$Amount', Now(), '$AN')";
 
 			if ($conn->query($sql) === TRUE) {
     			echo "Transaction created successfully.";
