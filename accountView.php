@@ -233,7 +233,7 @@
 </section>
 <?php
 	include("../../sqlfiles/bank_db_connection.php");
-	$bal = "Select Account_Number, Current_Balance_Amount from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email') "
+	$bal = "Select Account_Number, Current_Balance_Amount from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email') ";
 	$b = $conn->query($bal) or die($conn->error);
 	while (($row = $b->fetch_assoc()) !== null){
 
