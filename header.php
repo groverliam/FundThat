@@ -46,7 +46,18 @@
 			<!--a href="" class="site-btn">Sign Up Free</a-->
 			<nav class="main-menu">
 				<ul class="menu-list">
-					<li><a href="index.php?email=$Email">Home</a></li>
+					<?php 
+					   if (isset($_SESSION['Email'])){
+					   ?>
+					   	<li><a href="index.php?email=$Email">Home</a></li>
+					   <?php
+					}else{
+						?>
+							<li><a href="index.php">Home</a></li>
+						
+					<?php
+				}
+				?>
 					<li><a href="accountView.php?email=$Email">My Account</a></li>
 					<li><a href="blog.php?email=$Email">News</a></li>
 					<li><a href="about.php?email=$Email">About</a></li>
