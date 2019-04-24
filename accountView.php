@@ -135,7 +135,12 @@
 			$Amount = $_POST['Amount'];
 		else 
 			$error[] = "Please enter Amount.";
-			
+		
+		if (!empty($_POST['Account Number']))
+			$Account_Number = $_POST['Account Number'];
+		else 
+			$error[] = "Please enter Account Number.";
+
 		if(!empty($error)){
 			foreach ($error as $msg){
 				echo $msg;
@@ -164,7 +169,7 @@
 			echo $row[Account_Number]; // 42
 			// sql to insert data to table
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
-					VALUES ('$Type', '$Amount', Now(), '$row[Account_Number]')";
+					VALUES ('$Type', '$Amount', Now(), '$Account_Number')";
 
 			if ($conn->query($sql) === TRUE) {
     			echo "Transaction created successfully.";
@@ -191,6 +196,11 @@
 	?>
 	<form action="" method="post">
 				<table>
+					<tr>
+						<td>Amount: </td>
+						<td><input type="text" name="Account Number" 
+							value=<?php if(isset($_POST['Account Number'])) echo $_POST['Account Number'] ?>></td>
+					</tr>
 					<tr>
 						<td>Amount: </td>
 						<td><input type="text" name="Amount" 
