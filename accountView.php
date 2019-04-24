@@ -195,6 +195,9 @@
 						echo "Error: " . $newDep . "<br>" . $conn->error;
 					}*/
 				//}
+				}else{
+					echo "Cannot steal from other accounts."
+					echo "Please use your account number."
 				}
 			}
 			$conn->close();	
