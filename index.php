@@ -47,9 +47,6 @@
 				<div class="col-md-6 hero-text">
 					<h2>Fund <span>YOUR</span> <br>Dreams and Future</h2>
 					<h4>Use modern progressive technologies of saving to spoil yourself and plan ahead</h4>
-					<form class="hero-subscribe-from">
-						<button href="signup.php" class="site-btn sb-gradients">Get Started</button>
-					</form>
 				</div>
 				<div class="col-md-6">
 					<img src="img/laptop.png" class="laptop-image" alt="">
