@@ -159,7 +159,7 @@
     			die("Connection failed: " . $conn->connect_error);
 			} 
 
-			$result = mysql_query("Select * from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email')");
+			/*$result = mysql_query("Select * from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email')");
 			if (!$result) {
 			    echo 'Could not run query: ' . mysql_error();
 			    exit;
@@ -167,7 +167,7 @@
 			$row = mysql_fetch_row($result);
 
 			echo $row[Account_Number]; // 42
-			// sql to insert data to table
+			// sql to insert data to table*/
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
 					VALUES ('$Type', '$Amount', Now(), '$AccountNumber')";
 
