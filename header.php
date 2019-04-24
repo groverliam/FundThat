@@ -60,7 +60,9 @@
 						?>
 							<li><a href="Login.php?email=$email">Login</a></li>
 						
-					<?php}?>
+					<?php
+				}
+				?>
 				</ul>
 			</nav>
 		</div>
