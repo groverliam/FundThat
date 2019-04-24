@@ -170,7 +170,7 @@
 			// sql to insert data to table*/
 
 			if($Type == "Withdrawl"){
-				$Amount = '-$Amount';
+				$Amount = "-{$Amount}";
 			}
 
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
