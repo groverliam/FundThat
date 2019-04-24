@@ -34,6 +34,8 @@
 	</div>
 
 	<!-- Header section -->
+	<?php include 'header.php';
+   	?>
 	
 	<!-- Header section end -->
 
