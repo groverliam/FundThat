@@ -168,11 +168,10 @@
 			    //$conn->close();	
 			    exit;
 			}
-			$row = mysql_fetch_row($r);
+			$result = mysql_query($r,$conn);
+			$row = mysql_fetch_row($result);
 
-			echo "<tr>";
-				echo "<td>".$row['Account_Number']."</td>"; 
-			echo "</tr>";// 42
+			print_r(mysql_fetch_row($result));// 42
 			// sql to insert data to table*/
 			//if(".$row[Account_Number]." == $AccountNumber){
 			if($Type == "Withdrawl"){
