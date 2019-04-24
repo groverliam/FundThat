@@ -168,6 +168,11 @@
 
 			echo $row[Account_Number]; // 42
 			// sql to insert data to table*/
+
+			if($type === "Withdrawl"){
+				$Amount = '-$Amount'
+			}
+
 			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
 					VALUES ('$Type', '$Amount', Now(), '$AccountNumber')";
 
