@@ -171,9 +171,9 @@
 			//if(".$row[Account_Number]." == $AccountNumber){
 			while (($row = $w->fetch_assoc()) !== null){
 				if($row[Account_Number] == $AccountNumber){
-					if($Type == "Withdrawl"){
+					/*if($Type == "Withdrawl"){
 						$Amount = "-{$Amount}";
-					}
+					}*/
 
 					$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
 							VALUES ('$Type', '$Amount', Now(), '$AccountNumber')";
