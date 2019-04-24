@@ -52,7 +52,6 @@
 					<li><a href="about.php?email=$email">About</a></li>
 					<li><a href="contact.php?email=$email">Contact</a></li>
 					<?php 
-					   session_start();
 					   if (!isset($_SESSION['Email'])){
 					   ?>
 					   	<li><a href="Logout.php" >Logout</a></li>
@@ -60,8 +59,8 @@
 					}else{
 						?>
 							<li><a href="Login.php?email=$email">Login</a></li>
-						>?php
-					}
+						
+					<?php}?>
 				</ul>
 			</nav>
 		</div>
