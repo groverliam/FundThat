@@ -95,7 +95,7 @@
 								$display = 100;
 								if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
 								$start_from = ($page-1) * $display;
-								$q = "SELECT * FROM Transactions ORDER BY Account_Number ASC LIMIT ". $start_from.", ". $display;
+								$q = "SELECT * FROM Transactions WHERE Account_Number = (Select Account_Number from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email') )ORDER BY Account_Number ASC LIMIT ". $start_from.", ". $display;
 								
 								$r = $conn->query($q) or die($conn->error);
 									while (($row = $r->fetch_assoc()) !== null){
@@ -196,7 +196,7 @@
 				echo "Error: " . $newDep . "<br>" . $conn->error;
 			}*/
 		//}
-			$conn->close();	
+			//$conn->close();	
 			
 		}
 	}
