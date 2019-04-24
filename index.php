@@ -48,7 +48,7 @@
 					<h2>Fund <span>YOUR</span> <br>Dreams and Future</h2>
 					<h4>Use modern progressive technologies of saving to spoil yourself and plan ahead</h4>
 					<form class="hero-subscribe-from">
-						<button class="site-btn sb-gradients"><a href="signup.php">Get Started</button>
+						<button class="site-btn sb-gradients" href="signup.php">Get Started</button>
 					</form>
 				</div>
 				<div class="col-md-6">
