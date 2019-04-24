@@ -46,19 +46,26 @@
 			<!--a href="" class="site-btn">Sign Up Free</a-->
 			<nav class="main-menu">
 				<ul class="menu-list">
-					<li><a href="index.php">Home</a></li>
+					<li><a href="index.php?email=$email">Home</a></li>
 					<li><a href="accountView.php?email=$email">My Account</a></li>
-					<li><a href="blog.php">News</a></li>
-					<li><a href="about.php">About</a></li>
-					<li><a href="contact.php">Contact</a></li>
-					<li><a href="Login.php">Login</a></li>
+					<li><a href="blog.php?email=$email">News</a></li>
+					<li><a href="about.php?email=$email">About</a></li>
+					<li><a href="contact.php?email=$email">Contact</a></li>
+					<li><a href="Login.php?email=$email">Login</a></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
 	<?php
 		session_start();
-		$_SESSION['Email'] = $Email;
-	    $_SESSION['First_Name'] = $row['First_Name'];
+		if (!isset($_SESSION['Email'])){
+			//header('LOCATION: loginPROJECT.php');
+			echo "Welcome! Log in or sign up."
+		}
+		else {
+			
+	    	echo "Welcome $_SESSION['First_Name'] !"
+		}
 	?>
+
 </html>
