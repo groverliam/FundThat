@@ -159,19 +159,19 @@
     			die("Connection failed: " . $conn->connect_error);
 			} 
 
-			$r = "SELECT Account_Number FROM Deposits WHERE Tax_ID = (SELECT Tax_ID FROM Customers WHERE Email = '$Email') ";
+			$t = "SELECT Account_Number FROM Deposits WHERE Tax_ID = (SELECT Tax_ID FROM Customers WHERE Email = '$Email') ";
 			/*$result = mysql_query("Select * from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email')");
 			//$result = mysql_query("Select * from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email') and Account_Number = $Account_Number");*/
-			if (!$r) {
+			if (!$t) {
 			    echo 'Could not run query: ' . mysql_error();
 			    echo 'This could be from from using incorrect Account Number';
 			    //$conn->close();	
 			    exit;
 			}
-			$result = mysql_query($r,$conn);
+			$w = $conn->query($t) or die($conn->error);
 			//$row = mysql_fetch_row($result);
-
-			print_r(mysql_fetch_row($result));// 42
+			//$row = mysql_num_rows($result);
+			//print_r(mysqli_num_row($result));// 42
 			// sql to insert data to table*/
 			//if(".$row[Account_Number]." == $AccountNumber){
 			if($Type == "Withdrawl"){
