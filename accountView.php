@@ -163,14 +163,14 @@
 			if (!$result) {
 			    echo 'Could not run query: ' . mysql_error();
 			    echo 'This could be from from using incorrect Account Number';
-			    //$conn->close();	
+			    $conn->close();	
 			    exit;
 			}
 			$row = mysql_fetch_row($result);
 
 			echo $row[Account_Number]; // 42
 			// sql to insert data to table*/
-			if(".$row[Account_Number]." == $AccountNumber){
+			//if(".$row[Account_Number]." == $AccountNumber){
 			if($Type == "Withdrawl"){
 				$Amount = "-{$Amount}";
 			}
@@ -195,9 +195,9 @@
 			} else {
 				echo "Error: " . $newDep . "<br>" . $conn->error;
 			}*/
-		}
-
+		//}
 			$conn->close();	
+			
 		}
 	}
 	?>
