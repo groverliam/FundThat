@@ -52,7 +52,7 @@
 					<li><a href="about.php?email=$email">About</a></li>
 					<li><a href="contact.php?email=$email">Contact</a></li>
 					<?php 
-					   if (!isset($_SESSION['Email'])){
+					   if (isset($_SESSION['Email'])){
 					   ?>
 					   	<li><a href="Logout.php" >Logout</a></li>
 					   <?php
