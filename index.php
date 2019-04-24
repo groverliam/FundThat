@@ -36,7 +36,13 @@
 	<!-- Header section -->
 	<?php include 'header.php';
    	?>
-	
+	<?php
+	session_start();
+	if(isset($_SESSION['Email']))
+		$Email = $_SESSION['Email'];
+	else
+		header('LOCATION: index.php');
+	?>
 	<!-- Header section end -->
 
 
