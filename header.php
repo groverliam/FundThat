@@ -60,11 +60,11 @@
 		session_start();
 		if (!isset($_SESSION['Email'])){
 			//header('LOCATION: loginPROJECT.php');
-			echo "Welcome! Log in or sign up."
+			echo "Welcome! Log in or sign up.";
 		}
 		else {
 			
-	    	echo "Welcome!"
+	    	echo "Welcome $_SESSION['First_Name'] !";
 		}
 	?>
 
