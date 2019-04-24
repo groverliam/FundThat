@@ -51,7 +51,18 @@
 					<li><a href="blog.php?email=$email">News</a></li>
 					<li><a href="about.php?email=$email">About</a></li>
 					<li><a href="contact.php?email=$email">Contact</a></li>
-					<li><a href="Login.php?email=$email">Login</a></li>
+					<?php 
+					   session_start();
+					   if (!isset($_SESSION['Email'])){
+					   ?>
+							<li><a href="Login.php?email=$email">Login</a></li>
+					   <?php
+					}else{
+						?>
+
+							<li><a href="Logout.php" >Logout</a></li>
+						>?php
+					}
 				</ul>
 			</nav>
 		</div>
