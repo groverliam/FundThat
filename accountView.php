@@ -160,8 +160,6 @@
 			} 
 
 			$t = "SELECT Account_Number FROM Deposits WHERE Tax_ID = (SELECT Tax_ID FROM Customers WHERE Email = '$Email') ";
-			/*$result = mysql_query("Select * from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email')");
-			//$result = mysql_query("Select * from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email') and Account_Number = $Account_Number");*/
 			if (!$t) {
 			    echo 'Could not run query: ' . mysql_error();
 			    echo 'This could be from from using incorrect Account Number';
@@ -169,36 +167,36 @@
 			    exit;
 			}
 			$w = $conn->query($t) or die($conn->error);
-			//$row = mysql_fetch_row($result);
-			//$row = mysql_num_rows($result);
-			//print_r(mysqli_num_row($result));// 42
-			// sql to insert data to table*/
 			//if(".$row[Account_Number]." == $AccountNumber){
-			if($Type == "Withdrawl"){
-				$Amount = "-{$Amount}";
+			while (($row = $w->fetch_assoc()) !== null){
+				if($row[Account_Number] == $AccountNumber){
+					if($Type == "Withdrawl"){
+						$Amount = "-{$Amount}";
+					}
+
+					$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
+							VALUES ('$Type', '$Amount', Now(), '$AccountNumber')";
+
+					if ($conn->query($sql) === TRUE) {
+		    			echo "Transaction created successfully.";
+		    		
+					} else {
+		    			echo "Error: " . $sql . "<br>" . $conn->error;
+					}
+
+					/*$max = "SELECT MAX( Account_Number ) FROM Deposits";
+					$maxNum = query($max);
+					$maxNum = $max + 1;
+					$newDep = "INSERT INTO Deposits (Account_number, Tax_ID, Current_Balance_Amount, Role)
+							VALUES ($maxNum, '$Tax_ID', 0.00, 'Primary')";
+					if ($conn->query($newDep) === TRUE) {
+						echo "New Deposit created successfully";
+					} else {
+						echo "Error: " . $newDep . "<br>" . $conn->error;
+					}*/
+				//}
+				}
 			}
-
-			$sql = "INSERT INTO Transactions (Type, Amount, effective_date_time, Account_Number)
-					VALUES ('$Type', '$Amount', Now(), '$AccountNumber')";
-
-			if ($conn->query($sql) === TRUE) {
-    			echo "Transaction created successfully.";
-    		
-			} else {
-    			echo "Error: " . $sql . "<br>" . $conn->error;
-			}
-
-			/*$max = "SELECT MAX( Account_Number ) FROM Deposits";
-			$maxNum = query($max);
-			$maxNum = $max + 1;
-			$newDep = "INSERT INTO Deposits (Account_number, Tax_ID, Current_Balance_Amount, Role)
-					VALUES ($maxNum, '$Tax_ID', 0.00, 'Primary')";
-			if ($conn->query($newDep) === TRUE) {
-				echo "New Deposit created successfully";
-			} else {
-				echo "Error: " . $newDep . "<br>" . $conn->error;
-			}*/
-		//}
 			$conn->close();	
 			
 		}
