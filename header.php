@@ -64,7 +64,7 @@
 		}
 		else {
 			
-	    	echo "Welcome $_SESSION['First_Name'] !"
+	    	echo "Welcome!"
 		}
 	?>
 
