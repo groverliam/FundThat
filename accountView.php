@@ -74,7 +74,7 @@
 
 		            <h4 class="header-title">Transaction Summary</h4>
 		            <div class="data-tables datatable-primary">
-		                <table id="dataTable2" class="text-center">
+		                <table id="dataTable2" class="text-center" width="100%">
 		                    <thead class="text-capitalize">
 								<col width : 25%>
 								<!--<col width="100">-->
