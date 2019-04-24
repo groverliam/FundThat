@@ -76,11 +76,11 @@
 		            <div class="data-tables datatable-primary">
 		                <table id="dataTable2" class="text-center">
 		                    <thead class="text-capitalize">
-								<col width=25%>
+								<col width : 25%>
 								<!--<col width="100">-->
-								<col width=25%>
-								<col width=25%>
-								<col width=25%>
+								<col width : 25%>
+								<col width : 25%>
+								<col width : 25%>
 		                        <tr>
 		                            <th>Type</th>
 									<th>Amount</th>
