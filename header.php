@@ -55,12 +55,11 @@
 					   session_start();
 					   if (!isset($_SESSION['Email'])){
 					   ?>
-							<li><a href="Login.php?email=$email">Login</a></li>
+					   	<li><a href="Logout.php" >Logout</a></li>
 					   <?php
 					}else{
 						?>
-
-							<li><a href="Logout.php" >Logout</a></li>
+							<li><a href="Login.php?email=$email">Login</a></li>
 						>?php
 					}
 				</ul>
