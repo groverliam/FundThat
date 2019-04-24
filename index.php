@@ -34,14 +34,6 @@
 	</div>
 
 	<!-- Header section -->
-	<?php include 'header.php';
-	if (isset($_SESSION['Email'])){
-      echo 'Welcome!';
-   	}
-   	else {
-   		echo 'Sign up or log in.';
-   	}
-   	?>
 	
 	<!-- Header section end -->
 
