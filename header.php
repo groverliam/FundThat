@@ -46,11 +46,11 @@
 			<!--a href="" class="site-btn">Sign Up Free</a-->
 			<nav class="main-menu">
 				<ul class="menu-list">
-					<li><a href="index.php?email=$email">Home</a></li>
-					<li><a href="accountView.php?email=$email">My Account</a></li>
-					<li><a href="blog.php?email=$email">News</a></li>
-					<li><a href="about.php?email=$email">About</a></li>
-					<li><a href="contact.php?email=$email">Contact</a></li>
+					<li><a href="index.php?email=$Email">Home</a></li>
+					<li><a href="accountView.php?email=$Email">My Account</a></li>
+					<li><a href="blog.php?email=$Email">News</a></li>
+					<li><a href="about.php?email=$Email">About</a></li>
+					<li><a href="contact.php?email=$Email">Contact</a></li>
 					<?php 
 					   if (isset($_SESSION['Email'])){
 					   ?>
@@ -58,7 +58,7 @@
 					   <?php
 					}else{
 						?>
-							<li><a href="Login.php?email=$email">Login</a></li>
+							<li><a href="Login.php">Login</a></li>
 						
 					<?php
 				}
