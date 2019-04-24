@@ -196,8 +196,8 @@
 					}*/
 				//}
 				}else{
-					echo "Cannot steal from other accounts."
-					echo "Please use your account number."
+					echo "Cannot steal from other accounts.";
+					echo "Please use your account number.";
 				}
 			}
 			$conn->close();	
