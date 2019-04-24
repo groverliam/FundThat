@@ -8,6 +8,11 @@
 
 <body>
 <?php 
+   session_start();
+   if (isset($_SESSION['Email'])){
+      header('LOCATION: accountView.php?email=$email');
+   }
+
    if ($_SERVER['REQUEST_METHOD']=='POST'){     
       //retrieve form data
       $error = array();
