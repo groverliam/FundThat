@@ -109,6 +109,7 @@
 											//		   href='dispute.php?trans_TBD=".$row['Account_Number '].$row['effective_date_time']."'>Edit</a></td>";
 										echo "</tr>";
 									}
+
 								
 							?>
 		                    </tbody>
@@ -196,7 +197,7 @@
 					}*/
 				//}
 				}else{
-					echo "Cannot steal from other accounts.\n";
+					echo "Cannot steal from other accounts.";
 					echo "Please use your account number.";
 				}
 			}
@@ -230,7 +231,16 @@
 	</div>
 </center>
 </section>
+<?php
+	include("../../sqlfiles/bank_db_connection.php");
+	$bal = "Select Account_Number, Current_Balance_Amount from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email') "
+	$b = $conn->query($bal) or die($conn->error);
+	while (($row = $b->fetch_assoc()) !== null){
 
+		echo "<center> Account: ".$row['Account_Number']." has $".$row['Current_Balance_Amount']."</center>";
+	}
+	$conn->close();	
+?>
 	<!-- Footer section -->
 	<?php include 'footer.php';?>
 
