@@ -159,9 +159,10 @@
     			die("Connection failed: " . $conn->connect_error);
 			} 
 
-			/*$result = mysql_query("Select * from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email')");
+			$result = mysql_query("Select * from Deposits where Tax_ID = (Select Tax_ID from Customers Where Email = '$Email') and Account_Number = $Account_Number");
 			if (!$result) {
 			    echo 'Could not run query: ' . mysql_error();
+			    echo 'This could be from from using incorrect Account Number'
 			    exit;
 			}
 			$row = mysql_fetch_row($result);
