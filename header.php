@@ -56,16 +56,5 @@
 			</nav>
 		</div>
 	</header>
-	<?php
-		session_start();
-		if (!isset($_SESSION['Email'])){
-			//header('LOCATION: loginPROJECT.php');
-			echo "Welcome! Log in or sign up.";
-		}
-		else {
-			
-	    	echo "Welcome $_SESSION['First_Name'] !";
-		}
-	?>
 
 </html>
