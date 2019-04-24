@@ -169,7 +169,7 @@
 			    exit;
 			}
 			$result = mysql_query($r,$conn);
-			$row = mysql_fetch_row($result);
+			//$row = mysql_fetch_row($result);
 
 			print_r(mysql_fetch_row($result));// 42
 			// sql to insert data to table*/
