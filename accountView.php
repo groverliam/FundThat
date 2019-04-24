@@ -196,7 +196,7 @@
 					}*/
 				//}
 				}else{
-					echo "Cannot steal from other accounts.";
+					echo "Cannot steal from other accounts.\n";
 					echo "Please use your account number.";
 				}
 			}
